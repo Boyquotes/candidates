@@ -20,21 +20,21 @@ function create_post_type() {
       'labels' => array(
         'name' => __( 'Candidats' ),
         'singular_name' => __( 'Candidat' ),
-	'name_admin_bar'        => __( 'Candidats', 'text_domain' ),
-	'parent_item_colon'     => __( 'Candidat:', 'text_domain' ),
-	'all_items'             => __( 'Tous les candidats', 'text_domain' ),
-	'add_new_item'          => __( 'Ajoutez un candidat', 'text_domain' ),
-	'add_new'               => __( 'Ajoutez un nouveau', 'text_domain' ),
-	'new_item'              => __( 'Nouveau candidat', 'text_domain' ),
-	'edit_item'             => __( 'Modifier le candidat', 'text_domain' ),
-	'update_item'           => __( 'Mettre à jour le candidat', 'text_domain' ),
-	'view_item'             => __( 'Voir le candidat', 'text_domain' ),
-	'search_items'          => __( 'Rechercher un candidat', 'text_domain' ),
-	'not_found'             => __( 'Not found', 'text_domain' ),
-	'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
-	'items_list'            => __( 'Items list', 'text_domain' ),
-	'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
-	'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+        'name_admin_bar'        => __( 'Candidats', 'text_domain' ),
+        'parent_item_colon'     => __( 'Candidat:', 'text_domain' ),
+        'all_items'             => __( 'Tous les candidats', 'text_domain' ),
+        'add_new_item'          => __( 'Ajoutez un candidat', 'text_domain' ),
+        'add_new'               => __( 'Ajoutez un nouveau', 'text_domain' ),
+        'new_item'              => __( 'Nouveau candidat', 'text_domain' ),
+        'edit_item'             => __( 'Modifier le candidat', 'text_domain' ),
+        'update_item'           => __( 'Mettre à jour le candidat', 'text_domain' ),
+        'view_item'             => __( 'Voir le candidat', 'text_domain' ),
+        'search_items'          => __( 'Rechercher un candidat', 'text_domain' ),
+        'not_found'             => __( 'Not found', 'text_domain' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+        'items_list'            => __( 'Items list', 'text_domain' ),
+        'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+        'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
       ),
       'public' => true,
       'has_archive' => true,
@@ -73,7 +73,6 @@ function ma_meta_function($post){
 
 }
 
-
 #AJOUT DES CHAMPS DANS LA DEUXIEME BOX
 function ma_meta_function_heroes($post){
   // on récupère la valeur actuelle pour la mettre dans le champ
@@ -97,12 +96,11 @@ function save_metaboxes($post_ID){
 }
 add_action('save_post','save_metaboxes');
 
-
-//Widget menu produit thelia
-function widget_thelia(){
+//Declaration Widget
+function widget_candidates(){
     register_widget("class_widget_candidates_list");
 }
-add_action("widgets_init", "widget_thelia");
+add_action("widgets_init", "widget_candidates");
 
 //classe Widget menu produit thelia
 class class_widget_candidates_list extends WP_Widget {
