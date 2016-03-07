@@ -12,6 +12,12 @@ Version: 0.1
 Author URI: http://iness.simplon.co
 */
 
+// load css into the website's front-end
+function candidates_custom_style() {
+    wp_register_style('candidatesStyle', plugins_url('/candidates.css', __FILE__) );
+    wp_enqueue_style( 'candidatesStyle');
+}
+add_action( 'wp_enqueue_scripts', 'candidates_custom_style' );
 
 #CREER LE NOUVEAU TYPE DE POST candidat
 function create_post_type() {
@@ -134,7 +140,7 @@ class class_widget_candidates_list extends WP_Widget {
   ?>
     <p>
       <?php
-          echo "<span class='nom_candidat'>Nom : </span>";
+          echo "<span class='label_nom_candidat'>Nom : </span>";
           echo "<span class='nom_candidat'>";
             the_title();
           echo "</span>";
@@ -142,7 +148,7 @@ class class_widget_candidates_list extends WP_Widget {
           //echo "</br>DEBUG ID du post :".get_the_ID()." DEBUG</br>";
           $prenom = get_post_meta(get_the_ID(), '_ma_valeur_prenom', true);
           if(isset($prenom)){
-            echo "<span class='prenom_candidat'>Prénom : </span>";
+            echo "<span class='label_prenom_candidat'>Prénom : </span>";
             echo "<span class='prenom_candidat'>";
               echo $prenom;
             echo "</span>";
@@ -150,7 +156,7 @@ class class_widget_candidates_list extends WP_Widget {
 
           $heros = get_post_meta(get_the_ID(), '_ma_valeur_heroes', true);
           if(isset($heros) && $heros != ""){
-            echo "<span class='heros_candidat'>Héros préféré : </span>";
+            echo "<span class='label_heros_candidat'>Héros préféré : </span>";
             echo "<span class='heros_candidat'>";
             echo $heros;
             echo "</span>";
