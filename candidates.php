@@ -135,23 +135,29 @@ class class_widget_candidates_list extends WP_Widget {
   ?>
     <p>
       <?php
-          the_title();
+          echo "<span class='nom_candidat'>Nom : </span>";
+          echo "<span class='nom_candidat'>";
+            the_title();
+          echo "</span>";
+
           //echo "</br>DEBUG ID du post :".get_the_ID()." DEBUG</br>";
           $prenom = get_post_meta(get_the_ID(), '_ma_valeur_prenom', true);
           if(isset($prenom)){
-              echo " Prénom";
+            echo "<span class='prenom_candidat'>Prénom : </span>";
+            echo "<span class='prenom_candidat'>";
               echo $prenom;
-              echo "</br>";
+            echo "</span>";
           }
 
           $heros = get_post_meta(get_the_ID(), '_ma_valeur_heroes', true);
           if(isset($heros) && $heros != ""){
-              echo " Son héros : ";
-              echo $heros;
-              echo "</br>";
+            echo "<span class='heros_candidat'>Héros préféré : </span>";
+            echo "<span class='heros_candidat'>";
+            echo $heros;
+            echo "</span>";
           }
           else{
-              echo "Il n'a pas rempli le champs héros";
+              echo "<span class='heros_candidat'>Il n'a pas rempli le champs héros</span>";
           }
       ?>
     </p>
