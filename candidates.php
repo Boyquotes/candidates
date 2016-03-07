@@ -124,7 +124,6 @@ class class_widget_candidates_list extends WP_Widget {
   // 1 Parametrage de la requete dans un tableau $args
   $args = array(
     'post_type'  => 'candidat',
-    'posts_per_page' => '3',
   );
   // 2. on exécute la query
   $my_query = new WP_Query($args);
